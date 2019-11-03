@@ -125,3 +125,101 @@ flow_gauge_table
 
 ```
 
+Graphs.
+Create hydrographs for each station. Will need to add in the meterological stations later.
+
+```{r}
+
+# Santa Ynez Los Laureles
+
+santa_ynez_los_laurls$date <- as.Date(santa_ynez_los_laurls$date)
+
+syll_graph <- ggplot(santa_ynez_los_laurls, aes(x = date, y = discharge_m3_s)) +
+  geom_point(color = "darkblue") +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%Y %b %d") +
+  labs(x = "Date",
+       y = "Discharge (cumecs)") +
+  ggtitle("Santa Ynez Los Laureles (11123500)")
+
+syll_graph
+
+```
+
+```{r}
+
+# Santa Cruz Santa Ynez
+
+santa_cruz_santa_ynez$date <- as.Date(santa_cruz_santa_ynez$date)
+
+scsy_graph <- ggplot(santa_cruz_santa_ynez, aes(x = date, y = discharge_m3_s)) +
+  geom_point(color = "darkblue") +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%Y %b %d") +
+  labs(x = "Date",
+       y = "Discharge (cumecs)") +
+  ggtitle("Santa Cruz Santa Ynez (11124500)")
+
+scsy_graph
+
+```
+
+```{r}
+
+# Santa Ynez Solvang
+
+santa_ynez_solvang$date <- as.Date(santa_ynez_solvang$date)
+
+sys_graph <- ggplot(santa_ynez_solvang, aes(x = date, y = discharge_m3_s)) +
+  geom_point(color = "darkblue") +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%Y %b %d") +
+  labs(x = "Date",
+       y = "Discharge (cumecs)") +
+  ggtitle("Santa Ynez Solvang (11128500)")
+
+sys_graph
+
+```
+
+```{r}
+
+# Alamo Pintado
+
+alamo_pintado$date <- as.Date(alamo_pintado$date)
+
+ap_graph <- ggplot(alamo_pintado, aes(x = date, y = discharge_m3_s)) +
+  geom_point(color = "darkblue") +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%Y %b %d") +
+  labs(x = "Date",
+       y = "Discharge (cumecs)") +
+  ggtitle("Alamo Pintado (11128250)")
+
+ap_graph
+
+```
+
+```{r}
+
+# Zaca Buellton
+
+zaca_buellton$date <- as.Date(zaca_buellton$date)
+
+zb_graph <- ggplot(zaca_buellton, aes(x = date, y = discharge_m3_s)) +
+  geom_point(color = "darkblue") +
+  geom_line(color = "darkblue") +
+  theme_minimal() +
+  scale_x_date(date_labels = "%Y %b %d") +
+  labs(x = "Date",
+       y = "Discharge (cumecs)") +
+  ggtitle("Zaca Buellton (11129800)")
+
+zb_graph
+
+```
+
