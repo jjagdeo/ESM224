@@ -1,0 +1,127 @@
+---
+title: "santa_ynez_hydrology"
+author: "Jessica Jagdeo"
+date: "11/3/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r, include = FALSE}
+
+# Load in necessary packages
+
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(kableExtra)
+
+```
+
+```{r, output = FALSE}
+
+# Read in the hydrology data from USGS flow gauges
+
+flow_gauge_stations <- read_excel("FlowGauge_stations.xlsx")
+
+santa_ynez_los_laurls <- read_excel("SantaYnezLosLaurls_11123500.xlsx") %>% 
+  clean_names()
+
+santa_cruz_santa_ynez <- read_excel("SantaCruzSantaYnez_11124500.xlsx") %>% 
+  clean_names()
+
+santa_ynez_solvang <- read_excel("SantaYnezSolvang_11128500.xlsx") %>% 
+  clean_names()
+
+alamo_pintado <- read_excel("AlamoPintado_11128250.xlsx") %>% 
+  clean_names()
+
+zaca_buellton <- read_excel("ZacaBuellton_11129800.xlsx") %>% 
+  clean_names()
+
+```
+
+```{r}
+
+# Calculate the summary statistics for each hydrological station
+
+syll_summary <- santa_ynez_los_laurls %>% 
+  summarize(
+  "Average Flow (cumecs)" = mean(discharge_m3_s),
+    "Min. Flow (cumecs)" = min(discharge_m3_s),
+  "Max Flow (cumecs)" = max(discharge_m3_s)
+)
+syll_summary
+
+
+scsy_summary <- santa_cruz_santa_ynez %>% 
+   summarize(
+  "Average Flow (cumecs)" = mean(discharge_m3_s),
+    "Min. Flow (cumecs)" = min(discharge_m3_s),
+  "Max Flow (cumecs)" = max(discharge_m3_s)
+)
+scsy_summary
+
+
+sys_summary <- santa_ynez_solvang %>% 
+   summarize(
+  "Average Flow (cumecs)" = mean(discharge_m3_s),
+    "Min. Flow (cumecs)" = min(discharge_m3_s),
+  "Max Flow (cumecs)" = max(discharge_m3_s)
+)
+sys_summary
+
+
+ap_summary <- alamo_pintado %>% 
+   summarize(
+  "Average Flow (cumecs)" = mean(discharge_m3_s),
+    "Min. Flow (cumecs)" = min(discharge_m3_s),
+  "Max Flow (cumecs)" = max(discharge_m3_s)
+)
+ap_summary
+
+zb_summary <- zaca_buellton %>% 
+   summarize(
+  "Average Flow (cumecs)" = mean(discharge_m3_s),
+    "Min. Flow (cumecs)" = min(discharge_m3_s),
+  "Max Flow (cumecs)" = max(discharge_m3_s)
+)
+zb_summary
+
+```
+
+```{r}
+
+# Create a dataframe with the summary statistics for all 5 hydrological stations in the watershed
+
+hydrological_stations <- c("SANTA YNEZ R BL LOS LAURLS CYN NR SNTA YNEZ CA",
+                           "SANTA CRUZ C NR SANTA YNEZ CA", 
+                           "SANTA YNEZ R A SOLVANG CA", 
+                           "ALAMO PINTADO C NR SOLVANG CA", 
+                           "ZACA C NR BUELLTON CA" )
+
+hydrological_summary <- rbind(syll_summary, scsy_summary, sys_summary, ap_summary, zb_summary) %>% 
+  mutate(Site = hydrological_stations) %>% 
+  select(Site, "Average Flow (cumecs)", "Min. Flow (cumecs)", "Max Flow (cumecs)") %>% kable() %>% 
+   kable_styling(bootstrap_options = c("striped", "hover"))
+
+hydrological_summary
+
+
+```
+
+```{r}
+
+# Create a table with information about the hydrological stations
+
+flow_gauge_table <- flow_gauge_stations %>% 
+  kable() %>% 
+  kable_styling(bootstrap_options = c("striped", "hover"))
+
+flow_gauge_table
+
+```
+
