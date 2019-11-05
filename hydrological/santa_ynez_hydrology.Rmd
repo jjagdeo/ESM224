@@ -50,44 +50,44 @@ zaca_buellton <- read_excel("ZacaBuellton_11129800.xlsx") %>%
 
 syll_summary <- santa_ynez_los_laurls %>% 
   summarize(
-  "Average Flow (cumecs)" = mean(discharge_m3_s),
+  "Average Flow (cumecs)" = round(mean(discharge_m3_s), 2),
     "Min. Flow (cumecs)" = min(discharge_m3_s),
-  "Max Flow (cumecs)" = max(discharge_m3_s)
+  "Max Flow (cumecs)" = round(max(discharge_m3_s), 2)
 )
 syll_summary
 
 
 scsy_summary <- santa_cruz_santa_ynez %>% 
    summarize(
-  "Average Flow (cumecs)" = mean(discharge_m3_s),
+  "Average Flow (cumecs)" = round(mean(discharge_m3_s), 2),
     "Min. Flow (cumecs)" = min(discharge_m3_s),
-  "Max Flow (cumecs)" = max(discharge_m3_s)
+  "Max Flow (cumecs)" = round(max(discharge_m3_s), 2)
 )
 scsy_summary
 
 
 sys_summary <- santa_ynez_solvang %>% 
    summarize(
-  "Average Flow (cumecs)" = mean(discharge_m3_s),
+  "Average Flow (cumecs)" = round(mean(discharge_m3_s), 2),
     "Min. Flow (cumecs)" = min(discharge_m3_s),
-  "Max Flow (cumecs)" = max(discharge_m3_s)
+  "Max Flow (cumecs)" = round(max(discharge_m3_s), 2)
 )
 sys_summary
 
 
 ap_summary <- alamo_pintado %>% 
    summarize(
-  "Average Flow (cumecs)" = mean(discharge_m3_s),
+  "Average Flow (cumecs)" = round(mean(discharge_m3_s), 2),
     "Min. Flow (cumecs)" = min(discharge_m3_s),
-  "Max Flow (cumecs)" = max(discharge_m3_s)
+  "Max Flow (cumecs)" = round(max(discharge_m3_s), 2)
 )
 ap_summary
 
 zb_summary <- zaca_buellton %>% 
    summarize(
-  "Average Flow (cumecs)" = mean(discharge_m3_s),
+  "Average Flow (cumecs)" = round(mean(discharge_m3_s), 2),
     "Min. Flow (cumecs)" = min(discharge_m3_s),
-  "Max Flow (cumecs)" = max(discharge_m3_s)
+  "Max Flow (cumecs)" = round(max(discharge_m3_s), 2)
 )
 zb_summary
 
