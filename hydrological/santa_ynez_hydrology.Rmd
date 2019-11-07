@@ -135,13 +135,13 @@ Create hydrographs for each station. Will need to add in the meterological stati
 santa_ynez_los_laurls$date <- as.Date(santa_ynez_los_laurls$date)
 
 syll_graph <- ggplot(santa_ynez_los_laurls, aes(x = date, y = discharge_m3_s)) +
-  geom_point(color = "darkblue") +
+  #geom_point(color = "darkblue") +
   geom_line(color = "darkblue") +
   theme_minimal() +
   scale_x_date(date_labels = "%Y %b %d") +
   labs(x = "Date",
-       y = "Discharge (cumecs)") +
-  ggtitle("Santa Ynez Los Laureles (11123500)")
+       y = "Flow rate (cumecs)") +
+  ggtitle("Santa Ynez Los Laureles (11123500) Flow Station")
 
 syll_graph
 
@@ -154,13 +154,13 @@ syll_graph
 santa_cruz_santa_ynez$date <- as.Date(santa_cruz_santa_ynez$date)
 
 scsy_graph <- ggplot(santa_cruz_santa_ynez, aes(x = date, y = discharge_m3_s)) +
-  geom_point(color = "darkblue") +
+  #geom_point(color = "darkblue") +
   geom_line(color = "darkblue") +
   theme_minimal() +
   scale_x_date(date_labels = "%Y %b %d") +
   labs(x = "Date",
-       y = "Discharge (cumecs)") +
-  ggtitle("Santa Cruz Santa Ynez (11124500)")
+       y = "Flow rate (cumecs)") +
+  ggtitle("Santa Cruz Santa Ynez (11124500) Flow Station")
 
 scsy_graph
 
@@ -173,13 +173,13 @@ scsy_graph
 santa_ynez_solvang$date <- as.Date(santa_ynez_solvang$date)
 
 sys_graph <- ggplot(santa_ynez_solvang, aes(x = date, y = discharge_m3_s)) +
-  geom_point(color = "darkblue") +
+  #geom_point(color = "darkblue") +
   geom_line(color = "darkblue") +
   theme_minimal() +
   scale_x_date(date_labels = "%Y %b %d") +
   labs(x = "Date",
-       y = "Discharge (cumecs)") +
-  ggtitle("Santa Ynez Solvang (11128500)")
+       y = "Flow rate (cumecs)") +
+  ggtitle("Santa Ynez Solvang (11128500) Flow Station")
 
 sys_graph
 
@@ -192,13 +192,13 @@ sys_graph
 alamo_pintado$date <- as.Date(alamo_pintado$date)
 
 ap_graph <- ggplot(alamo_pintado, aes(x = date, y = discharge_m3_s)) +
-  geom_point(color = "darkblue") +
+  #geom_point(color = "darkblue") +
   geom_line(color = "darkblue") +
   theme_minimal() +
   scale_x_date(date_labels = "%Y %b %d") +
   labs(x = "Date",
-       y = "Discharge (cumecs)") +
-  ggtitle("Alamo Pintado (11128250)")
+       y = "Flow rate (cumecs)") +
+  ggtitle("Alamo Pintado (11128250) Flow Station")
 
 ap_graph
 
@@ -211,13 +211,13 @@ ap_graph
 zaca_buellton$date <- as.Date(zaca_buellton$date)
 
 zb_graph <- ggplot(zaca_buellton, aes(x = date, y = discharge_m3_s)) +
-  geom_point(color = "darkblue") +
+  #geom_point(color = "darkblue") +
   geom_line(color = "darkblue") +
   theme_minimal() +
   scale_x_date(date_labels = "%Y %b %d") +
   labs(x = "Date",
-       y = "Discharge (cumecs)") +
-  ggtitle("Zaca Buellton (11129800)")
+       y = "Flow rate (cumecs)") +
+  ggtitle("Zaca Buellton (11129800) Flow Station")
 
 zb_graph
 
