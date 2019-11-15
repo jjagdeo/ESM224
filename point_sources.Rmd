@@ -1,0 +1,55 @@
+---
+title: "point_sources"
+author: "Jessica Jagdeo"
+date: "11/14/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(tidyverse)
+library(readxl)
+library(janitor)
+library(ggthemes)
+
+```
+
+```{r}
+
+point_sources <- read_excel("PCS_data.xlsx")
+
+colnames(point_sources) = point_sources[3, ]
+point_sources = point_sources[-3, ]   
+
+
+```
+
+```{r}
+
+point_sources_filter <- point_sources %>%  
+  clean_names() %>% 
+  filter(pollutant_name == "Solids, total dissolved"|
+           pollutant_name == "Chloride"|
+           pollutant_name == "Sodium") %>% 
+  select(facility_name, pollutant_name, total_kilograms_kg_yr) 
+
+point_sources_filter$total_kilograms_kg_yr <- as.numeric(point_sources_filter$total_kilograms_kg_yr)
+
+point_sources_graph <- 
+  ggplot(point_sources_filter, aes(x = facility_name, y = total_kilograms_kg_yr, fill = pollutant_name)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(x = "\nFacility",
+       y = "Total Kilograms (kg/yr)\n") +
+  ggtitle("Point Source Discharge within the Santa Ynez Watershed in 2019") +
+  theme_stata() +
+  scale_fill_discrete(name = "Pollutants")
+
+point_sources_graph
+
+```
+
